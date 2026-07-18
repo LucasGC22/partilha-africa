@@ -10,7 +10,14 @@ const coloniesData = {
     violence: true,
     womenResistance: true,
     summary: "Estabelecido inicialmente como 'Estado Livre do Congo', um domínio pessoal do rei Leopoldo II da Bélgica (1885-1908). A região foi palco de um dos regimes coloniais mais atrozes da história moderna, baseado na exploração brutal de borracha silvestre e marfim. O trabalho forçado era garantido por meio do sequestro de mulheres, incêndio de aldeias, chicotadas sistemáticas e mutilação de mãos e pés de trabalhadores e suas crianças. Estima-se que até 10 milhões de pessoas tenham morrido nesse período. Em 1908, sob forte clamor internacional pelas atrocidades expostas, o controle foi transferido formalmente ao Estado Belga, que encerrou as mutilações em massa mas manteve a pilhagem econômica e a segregação racial até a independência em 1960.",
-    resistance: "As mulheres congolesas desempenharam papéis heróicos na manutenção das comunidades dizimadas pela perda de seus homens. Elas organizaram plantações agrícolas de subsistência clandestinas, forneceram comida e esconderijo para fugitivos do trabalho forçado e preservaram tradições orais e danças ritualísticas de resistência. Espiritualmente, a memória do Reino do Congo anterior inspirou revoltas lideradas por mulheres contra a assimilação religiosa. No século XX, movimentos religiosos anticoloniais incorporavam a liderança de mulheres locais, que desafiavam o domínio de inspetores belgas e missionários ocidentais."
+    resistance: "As mulheres congolesas desempenharam papéis heróicos na manutenção das comunidades dizimadas pela perda de seus homens. Elas organizaram plantações agrícolas de subsistência clandestinas, forneceram comida e esconderijo para fugitivos do trabalho forçado e preservaram tradições orais e danças ritualísticas de resistência. Espiritualmente, a memória do Reino do Congo anterior inspirou revoltas lideradas por mulheres contra a assimilação religiosa. No século XX, movimentos religiosos anticoloniais incorporavam a liderança de mulheres locais, que desafiavam o domínio de inspetores belgas e missionários ocidentais.",
+    curiosity: "A tragédia das mãos cortadas: sob o Leopoldismo, o fracasso em atingir as cotas de extração de borracha resultava na amputação das mãos de trabalhadores e de suas crianças pelas milícias coloniais. O horror foi documentado pelo diplomata britânico Roger Casement em 1904 e pelo escritor Mark Twain, gerando escândalo internacional que forçou a transferência da colônia ao Estado belga.",
+    localTimeline: [
+      { year: "1885", event: "Leopoldo II assume o Congo como propriedade pessoal, criando o 'Estado Livre do Congo'." },
+      { year: "1904", event: "Roger Casement denuncia internacionalmente o regime de terror e mutilações em massa." },
+      { year: "1908", event: "Pressão internacional força a transferência da colônia ao Estado belga." },
+      { year: "1960", event: "Independência proclamada. Patrice Lumumba torna-se o primeiro-ministro; é assassinado meses depois." }
+    ]
   },
   "aof": {
     title: "África Ocidental Francesa (AOF)",
@@ -144,7 +151,7 @@ const coloniesData = {
     summary: "Formada pela fusão forçada de diferentes regiões históricas (como os sultanatos islâmicos do Norte e os reinos e sociedades do Sul, incluindo os povos Yoruba e Igbo). Os britânicos governaram indiretamente (Indirect Rule) por meio de chefes tradicionais nomeados ('Warrant Chiefs'), que extorquiam a população com pesados impostos e cobravam propinas. O foco da colônia era a exportação de óleo de palma, estanho, carvão e cacau, desestruturando as economias locais e gerando fome regional.",
     resistance: "Em 1929 ocorreu a famosa Guerra das Mulheres de Aba (ou Revolta de Aba). Milhares de mulheres da etnia Igbo e tribos vizinhas organizaram protestos de massa, marchas e ataques a postos administrativos coloniais contra o anúncio de taxas abusivas sobre seus bens e animais. Elas usaram táticas tradicionais de intimidação pública coletiva ('sitting on a man', cantando e dançando no entorno dos chefes coloniais até forçá-los a renunciar). Os britânicos responderam abrindo fogo, matando dezenas de mulheres, mas o imposto sobre elas foi cancelado."
   },
-  "costa-ouro-br": {
+  "costa-ouro-br": { // Ghana
     title: "Costa do Ouro (Gana Britânica)",
     actualCountries: "Gana",
     period: "1874 - 1957",
@@ -154,7 +161,14 @@ const coloniesData = {
     violence: false,
     womenResistance: true,
     summary: "Colônia britânica focada na extração de ouro e exportação massiva de cacau. Para consolidar o controle territorial, o exército britânico travou cinco sangrentas guerras contra o Império Ashanti ao longo de décadas. O governo colonial operou por cooptação de elites e controle das exportações agrícolas, desequilibrando as redes tradicionais de poder e forçando os agricultores locais a se submeterem a mercados controlados por cartéis europeus.",
-    resistance: "Em 1900, quando o governador colonial britânico exigiu a entrega do Trono de Ouro (objeto mais sagrado e símbolo espiritual da nação Ashanti) para sentar-se nele, os homens hesitaram. Foi quando Yaa Asantewaa, Rainha-mãe de Ejisu, fez um famoso discurso desafiando os homens e assumiu o comando militar supremo do exército de resistência. Ela liderou com sucesso o cerco à fortaleza britânica em Kumasi por meses. Embora tenha sido capturada e exilada nas Seychelles, ela impediu a captura do trono sagrado e inspirou as futuras lutas de libertação de Gana."
+    resistance: "Em 1900, quando o governador colonial britânico exigiu a entrega do Trono de Ouro (objeto mais sagrado e símbolo espiritual da nação Ashanti) para sentar-se nele, os homens hesitaram. Foi quando Yaa Asantewaa, Rainha-mãe de Ejisu, fez um famoso discurso desafiando os homens e assumiu o comando militar supremo do exército de resistência. Ela liderou com sucesso o cerco à fortaleza britânica em Kumasi por meses. Embora tenha sido capturada e exilada nas Seychelles, ela impediu a captura do trono sagrado e inspirou as futuras lutas de libertação de Gana.",
+    curiosity: "O Trono Dourado Ashanti (Sika 'dwa Kofi) não é considerado apenas um móvel: é tido como o recipiente físico da alma coletiva da nação Ashanti. Segundo a tradição, nenhum ser humano pode se sentar nele — nem o próprio Asantehene (rei). Exigir que um estrangeiro se sentasse nele foi considerado uma declaração de guerra espiritual, o que levou Yaa Asantewaa a comandar pessoalmente o exército de resistência.",
+    localTimeline: [
+      { year: "1874", event: "Anexação britânica oficial do litoral, após a derrota Ashanti na 3ª Guerra Anglo-Ashanti." },
+      { year: "1900", event: "Guerra do Trono de Ouro liderada pela Rainha-mãe Yaa Asantewaa, a última grande guerra anti-britânica na região." },
+      { year: "1901", event: "Anexação formal do reino Ashanti e do norte. Yaa Asantewaa é exilada para as Seychelles." },
+      { year: "1957", event: "Gana torna-se o primeiro país da África Subsaariana a obter a independência, liderado por Kwame Nkrumah." }
+    ]
   },
   "oeste-br": {
     title: "Serra Leoa e Gâmbia",
@@ -204,7 +218,7 @@ const coloniesData = {
     summary: "Enclave colonial português voltado para a exportação de amendoim e dendê. A população nativa sofria com o trabalho forçado, impostos de palhota e negação total de direitos políticos. Diante da recusa portuguesa em negociar a autonomia, o PAIGC (liderado por Amílcar Cabral) iniciou uma guerra de guerrilha altamente organizada na década de 1960 que liberou a maior parte do território antes de Portugal aceitar a independência.",
     resistance: "As mulheres guineenses foram fundamentais nas 'zonas libertadas' geradas pela guerrilha anticolonial. Elas gerenciavam as cooperativas agrícolas camponesas, operavam escolas populares e postos médicos na floresta e participavam dos comitês de autogestão local. Líderes como Carmen Pereira ocuparam altos postos políticos no movimento de libertação, coordenando a logística da saúde militar na frente sul e demonstrando o poder de agência feminina na descolonização."
   },
-  "sudoeste-de": {
+  "sudoeste-de": { // Namibia
     title: "Sudoeste Africano Alemão",
     actualCountries: "Namíbia",
     period: "1884 - 1915",
@@ -214,7 +228,15 @@ const coloniesData = {
     violence: true,
     womenResistance: true,
     summary: "Colonização violenta de povoamento onde colonos alemães apropriaram-se de terras férteis e poços de água fundamentais. Diante da insurreição dos povos Herero e Nama contra a espoliação, o general alemão Lothar von Trotha emitiu ordens oficiais de extermínio (1904). Populações inteiras foram empurradas para o deserto árido do Kalahari para morrer de sede, e os sobreviventes foram aprisionados em campos de concentração brutais (como o de Shark Island). Estima-se o extermínio de 80% dos Herero e 50% dos Nama, o primeiro genocídio do século XX.",
-    resistance: "As mulheres Herero e Nama desempenharam papéis extraordinários na sobrevivência de seus povos frente ao extermínio planejado. Após a devastação dos campos de concentração, as mulheres sobreviventes reconstruíram a malha familiar de forma autônoma. Elas desenvolveram uma forma única de resistência cultural: adotaram os vestidos vitorianos volumosos que eram forçadas a usar pelas esposas dos colonos, mas os adaptaram e expandiram com toucas em formato de chifres de gado (símbolo de riqueza Herero), transformando a veste de submissão em um símbolo de orgulho, soberania e vitória da vida sobre o genocídio."
+    resistance: "As mulheres Herero e Nama desempenharam papéis extraordinários na sobrevivência de seus povos frente ao extermínio planejado. Após a devastação dos campos de concentração, as mulheres sobreviventes reconstruíram a malha familiar de forma autônoma. Elas desenvolveram uma forma única de resistência cultural: adotaram os vestidos vitorianos volumosos que eram forçadas a usar pelas esposas dos colonos, mas os adaptaram e expandiram com toucas em formato de chifres de gado (símbolo de riqueza Herero), transformando a veste de submissão em um símbolo de orgulho, soberania e vitória da vida sobre o genocídio.",
+    curiosity: "Os vestidos Herero (Otjikaiva) são até hoje usados em cerimônias pelos descendentes das sobreviventes. A touca em formato de chifre bovino (ótjikaiva), uma adaptação do boné vitoriano, virou símbolo de resistência e memória viva do genocídio. A Alemanha só reconheceu oficialmente o genocídio Herero e Nama em 2021, após décadas de pressão de descendentes e ativistas.",
+    localTimeline: [
+      { year: "1884", event: "Alemães estabelecem a colônia após assinar tratados forçados com chefes Herero." },
+      { year: "1904", event: "General von Trotha emite a 'Vernichtungsbefehl' (Ordem de Exterminínio) dos Herero." },
+      { year: "1904-1908", event: "Genocídio sistemático: campos de concentração, marchas forçadas ao deserto, extermínio em massa." },
+      { year: "1915", event: "A colônia é tomada pela África do Sul durante a Primeira Guerra Mundial." },
+      { year: "2021", event: "Alemanha reconhece oficialmente o genocídio e propõe reparações às comunidades descendentes." }
+    ]
   },
   "camaroes-togo-de": {
     title: "Camarões e Togolândia",
@@ -490,30 +512,62 @@ function clearSelection() {
   hideColonyDetails();
 }
 
-// Exibir detalhes da colônia no painel
+// Referências aos blocos modulares do painel direito
+const detailCuriosityBlock   = document.getElementById('detail-specific-curiosity-block');
+const detailCuriosityText    = document.getElementById('detail-specific-curiosity');
+const detailLocalTimelineBlock = document.getElementById('detail-local-timeline-block');
+const detailLocalTimeline    = document.getElementById('detail-local-timeline');
+const mainGridLayout         = document.getElementById('main-grid-layout');
+
+// Exibir detalhes da colônia no painel — layout modular
 function showColonyDetails(colonyId) {
   const colony = coloniesData[colonyId];
   if (!colony) return;
 
-  detailTitle.innerText = colony.title;
-  detailPeriod.innerText = colony.period;
-  detailPower.innerText = colony.power;
+  // Blocos sempre presentes
+  detailTitle.innerText          = colony.title;
+  detailPeriod.innerText         = colony.period;
+  detailPower.innerText          = colony.power;
   detailActualCountries.innerText = colony.actualCountries;
-  detailSummary.innerText = colony.summary;
-  detailResistance.innerText = colony.resistance;
+  detailSummary.innerText        = colony.summary;
+  detailResistance.innerText     = colony.resistance;
 
   // Atualizar a cor do badge da potência
-  detailPower.style.backgroundColor = `var(--power-${colony.powerClass.split('-')[1]})`;
+  const powerKey = colony.powerClass.split('-')[1];
+  detailPower.style.backgroundColor = `var(--power-${powerKey})`;
 
-  // Exibir o painel e ocultar o estado vazio
+  // Bloco 5: Curiosidade específica — aparece apenas se existir
+  if (colony.curiosity) {
+    detailCuriosityText.innerText = colony.curiosity;
+    detailCuriosityBlock.style.display = 'block';
+  } else {
+    detailCuriosityBlock.style.display = 'none';
+  }
+
+  // Bloco 6: Linha do tempo local — aparece apenas se existir
+  if (colony.localTimeline && colony.localTimeline.length > 0) {
+    detailLocalTimeline.innerHTML = '';
+    colony.localTimeline.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${item.year}</strong>${item.event}`;
+      detailLocalTimeline.appendChild(li);
+    });
+    detailLocalTimelineBlock.style.display = 'block';
+  } else {
+    detailLocalTimelineBlock.style.display = 'none';
+  }
+
+  // Ativar painel e remover estado de "sem seleção" no grid
   detailsEmptyState.style.display = 'none';
   colonyDetails.classList.add('active');
+  if (mainGridLayout) mainGridLayout.classList.remove('no-selection');
 }
 
 // Ocultar detalhes e voltar ao estado vazio
 function hideColonyDetails() {
   colonyDetails.classList.remove('active');
   detailsEmptyState.style.display = 'flex';
+  if (mainGridLayout) mainGridLayout.classList.add('no-selection');
 }
 
 // Configurar o Sistema de Filtros

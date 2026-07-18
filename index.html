@@ -165,131 +165,159 @@
         <button class="filter-btn" data-filter="violencia">Maior Violência Colonial</button>
       </section>
 
-      <!-- Bloco de Mapa e Painel de Detalhes -->
-      <section class="map-view-container">
+      <!-- Grid de Três Colunas (Disposição de Painel de Museu Digital) -->
+      <div class="three-column-grid no-selection" id="main-grid-layout">
         
-        <!-- Mapa Interativo -->
-        <div class="map-wrapper" id="map-container">
-          <!-- O SVG será injetado aqui via JavaScript -->
-          <div class="details-empty-state" id="map-loading">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12,4A8,8,0,0,1,20,12A8,8,0,0,1,12,20A8,8,0,0,1,4,12A8,8,0,0,1,12,4M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2ZM12,6A6,6,0,0,1,18,12A6,6,0,0,1,12,18A6,6,0,0,1,6,12A6,6,0,0,1,12,6Z"/>
-            </svg>
-            <h3>Carregando Mapa...</h3>
-          </div>
+        <!-- Coluna Central: Mapa e Legados da Colonização -->
+        <div class="center-layout-column">
           
-          <!-- Legenda do Mapa -->
-          <div class="map-legend">
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-uk)"></span> Reino Unido</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-fr)"></span> França</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-pt)"></span> Portugal</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-be)"></span> Bélgica</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-de)"></span> Alemanha</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-it)"></span> Itália</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-es)"></span> Espanha</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: var(--power-ind)"></span> Independente</div>
-          </div>
-        </div>
-
-        <!-- Painel de Detalhes da Colônia -->
-        <div class="details-panel" id="details-panel">
-          
-          <div class="details-empty-state" id="details-empty-state">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2M11,17H13V11H11V17Z"/>
-            </svg>
-            <h3>Explorar Território</h3>
-            <p>Passe o mouse ou clique em um país no mapa para investigar sua história colonial, exploração europeia e movimentos de resistência liderados por mulheres negras.</p>
-          </div>
-
-          <!-- Conteúdo Dinâmico da Colônia -->
-          <div class="colony-details" id="colony-details">
-            <div class="colony-header">
-              <div class="colony-name-wrap">
-                <h3 class="colony-title" id="detail-title">Congo Belga</h3>
-                <span class="colony-period" id="detail-period">1885 - 1960</span>
-              </div>
-              <div class="colony-meta">
-                <strong>Potência Colonizadora:</strong> 
-                <span class="colony-power-badge" id="detail-power" style="background-color: var(--power-be);">Bélgica</span>
-              </div>
-              <div class="colony-meta" style="margin-top: 0.25rem;">
-                <strong>Território Atual:</strong> <span id="detail-actual-countries">República Democrática do Congo</span>
-              </div>
+          <!-- Mapa Interativo -->
+          <div class="map-wrapper" id="map-container">
+            <!-- O SVG será injetado aqui via JavaScript -->
+            <div class="details-empty-state" id="map-loading">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12,4A8,8,0,0,1,20,12A8,8,0,0,1,12,20A8,8,0,0,1,4,12A8,8,0,0,1,12,4M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2ZM12,6A6,6,0,0,1,18,12A6,6,0,0,1,12,18A6,6,0,0,1,6,12A6,6,0,0,1,12,6Z"/>
+              </svg>
+              <h3>Carregando Mapa...</h3>
             </div>
-
-            <!-- Resumo da Exploração -->
-            <div class="colony-summary-section">
-              <h4>Exploração e Violência Colonial</h4>
-              <p class="colony-summary-text" id="detail-summary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
-
-            <!-- Bloco de Resistência Feminina -->
-            <div class="resistance-block">
-              <h4>
-                Mulheres e Resistência
-              </h4>
-              <p class="resistance-text" id="detail-resistance">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
+            
+            <!-- Legenda do Mapa -->
+            <div class="map-legend" id="map-legend">
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-uk)"></span> Reino Unido</div>
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-fr)"></span> França</div>
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-pt)"></span> Portugal</div>
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-be)"></span> Bélgica</div>
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-de)"></span> Alemanha</div>
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-it)"></span> Itália</div>
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-es)"></span> Espanha</div>
+              <div class="legend-item"><span class="legend-color" style="background-color: var(--power-ind)"></span> Independente</div>
             </div>
           </div>
-          
+
+          <!-- Seção: Legados da Colonização (Alinhada logo abaixo do mapa para eliminar espaços vazios) -->
+          <section class="legados-section">
+            <h2>Legados da Colonização</h2>
+            <div class="legados-grid">
+              
+              <div class="legado-item">
+                <h3>Fronteiras Artificiais</h3>
+                <p>
+                  O traçado geométrico feito em Berlim ignorou completamente a geografia humana da África, agrupando povos rivais no mesmo espaço político e separando famílias e comunidades sob potências coloniais distintas. Essas divisões tornaram-se as bases dos modernos Estados-nações após as independências, perpetuando instabilidades limítrofes artificiais.
+                </p>
+              </div>
+
+              <div class="legado-item">
+                <h3>Conflitos Contemporâneos</h3>
+                <p>
+                  As potências coloniais utilizaram táticas de "dividir para reinar", elevando artificialmente grupos étnicos específicos para posições de poder subordinado em relação a outros, como a política belga de classificação em Ruanda. Isso gerou ressentimentos profundos que eclodiram em tragédias de conflitos internos após a saída forçada das potências.
+                </p>
+              </div>
+
+              <div class="legado-item">
+                <h3>Desigualdade Econômica</h3>
+                <p>
+                  A economia colonial foi estruturada estritamente para a exportação de recursos naturais brutos (minérios e monoculturas agrícolas) e importação de produtos industrializados europeus. Essa posição dependente no comércio global gerou uma herança de subdesenvolvimento industrial e vulnerabilidade econômica externa nas nações africanas.
+                </p>
+              </div>
+
+              <div class="legado-item">
+                <h3>Racismo Estrutural</h3>
+                <p>
+                  A ideologia de superioridade civilizatória e a desumanização dos corpos negros, usadas para legitimar moralmente o tráfico de escravizados e a espoliação do continente africano, criaram preconceitos raciais globais indeléveis. O racismo moderno é um legado direto dessa hierarquização humana gerada pela exploração colonialista.
+                </p>
+              </div>
+
+              <div class="legado-item">
+                <h3>Apagamento Histórico</h3>
+                <p>
+                  Os discursos eurocêntricos retratam a África como um continente sem história até a chegada do colonizador. Esse silenciamento deliberado escondeu os grandes reinos medievais africanos, a complexidade de suas leis e o protagonismo histórico, militar e político de homens e mulheres africanas que moldaram o continente.
+                </p>
+              </div>
+
+              <div class="legado-item">
+                <h3>Resistência Cultural Viva</h3>
+                <p>
+                  Apesar da violência epistêmica e material, a resistência cultural africana sobreviveu. Manifesta-se hoje na vitalidade de suas religiões tradicionais, na riqueza de suas línguas locais, na literatura crítica de autores consagrados e na resiliência de redes de solidariedade comunitária ancestrais mantidas historicamente por mulheres.
+                </p>
+              </div>
+
+            </div>
+          </section>
+
         </div>
-      </section>
 
-      <!-- Seção: Legados da Colonização -->
-      <section class="legados-section">
-        <h2>Legados da Colonização</h2>
-        <div class="legados-grid">
+        <!-- Coluna Direita: Painel de Detalhes da Colônia -->
+        <aside class="right-layout-column">
           
-          <div class="legado-item">
-            <h3>Fronteiras Artificiais</h3>
-            <p>
-              O traçado geométrico feito em Berlim ignorou completamente a geografia humana da África, agrupando povos rivais no mesmo espaço político e separando famílias e comunidades sob potências coloniais distintas. Essas divisões tornaram-se as bases dos modernos Estados-nações após as independências, perpetuando instabilidades limítrofes artificiais.
-            </p>
+          <div class="details-panel" id="details-panel">
+            
+            <div class="details-empty-state" id="details-empty-state">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2M11,17H13V11H11V17Z"/>
+              </svg>
+              <h3>Explorar Território</h3>
+              <p>Passe o mouse ou clique em um país no mapa para investigar sua história colonial, exploração europeia e movimentos de resistência liderados por mulheres negras.</p>
+            </div>
+
+            <!-- Conteúdo Dinâmico da Colônia (Organização Modular Baseada em Conteúdo) -->
+            <div class="colony-details" id="colony-details">
+              
+              <!-- 1. Nome do Território -->
+              <div class="colony-header">
+                <div class="colony-name-wrap">
+                  <h3 class="colony-title" id="detail-title">Congo Belga</h3>
+                  <span class="colony-period" id="detail-period">1885 - 1960</span>
+                </div>
+                
+                <!-- 2. Informações Gerais -->
+                <div class="colony-meta">
+                  <strong>Potência Colonizadora:</strong> 
+                  <span class="colony-power-badge" id="detail-power" style="background-color: var(--power-be);">Bélgica</span>
+                </div>
+                <div class="colony-meta" style="margin-top: 0.25rem;">
+                  <strong>Território Atual:</strong> <span id="detail-actual-countries">República Democrática do Congo</span>
+                </div>
+              </div>
+
+              <!-- 3. História e Repressão (História e Exploração) -->
+              <div class="colony-summary-section">
+                <h4>Exploração e Violência Colonial</h4>
+                <p class="colony-summary-text" id="detail-summary">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+
+              <!-- 4. Mulheres e Resistência -->
+              <div class="resistance-block">
+                <h4>Mulheres e Resistência</h4>
+                <p class="resistance-text" id="detail-resistance">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+
+              <!-- 5. Curiosidades Específicas do Território (Exibido dinamicamente) -->
+              <div class="colony-curiosity-block" id="detail-specific-curiosity-block" style="display: none;">
+                <h4>Curiosidade Específica</h4>
+                <p class="colony-curiosity-text" id="detail-specific-curiosity">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+
+              <!-- 6. Linha do Tempo Local (Exibido dinamicamente) -->
+              <div class="colony-timeline-block" id="detail-local-timeline-block" style="display: none;">
+                <h4>Marcos da História Local</h4>
+                <ul class="colony-local-timeline" id="detail-local-timeline">
+                  <!-- Itens injetados via JS -->
+                </ul>
+              </div>
+
+            </div>
+            
           </div>
+          
+        </aside>
 
-          <div class="legado-item">
-            <h3>Conflitos Contemporâneos</h3>
-            <p>
-              As potências coloniais utilizaram táticas de "dividir para reinar", elevando artificialmente grupos étnicos específicos para posições de poder subordinado em relação a outros, como a política belga de classificação em Ruanda. Isso gerou ressentimentos profundos que eclodiram em tragédias de conflitos internos após a saída forçada das potências.
-            </p>
-          </div>
-
-          <div class="legado-item">
-            <h3>Desigualdade Econômica</h3>
-            <p>
-              A economia colonial foi estruturada estritamente para a exportação de recursos naturais brutos (minérios e monoculturas agrícolas) e importação de produtos industrializados europeus. Essa posição dependente no comércio global gerou uma herança de subdesenvolvimento industrial e vulnerabilidade econômica externa nas nações africanas.
-            </p>
-          </div>
-
-          <div class="legado-item">
-            <h3>Racismo Estrutural</h3>
-            <p>
-              A ideologia de superioridade civilizatória e a desumanização dos corpos negros, usadas para legitimar moralmente o tráfico de escravizados e a espoliação do continente africano, criaram preconceitos raciais globais indeléveis. O racismo moderno é um legado direto dessa hierarquização humana gerada pela exploração colonialista.
-            </p>
-          </div>
-
-          <div class="legado-item">
-            <h3>Apagamento Histórico</h3>
-            <p>
-              Os discursos eurocêntricos retratam a África como um continente sem história até a chegada do colonizador. Esse silenciamento deliberado escondeu os grandes reinos medievais africanos, a complexidade de suas leis e o protagonismo histórico, militar e político de homens e mulheres africanas que moldaram o continente.
-            </p>
-          </div>
-
-          <div class="legado-item">
-            <h3>Resistência Cultural Viva</h3>
-            <p>
-              Apesar da violência epistêmica e material, a resistência cultural africana sobreviveu. Manifesta-se hoje na vitalidade de suas religiões tradicionais, na riqueza de suas línguas locais, na literatura crítica de autores consagrados e na resiliência de redes de solidariedade comunitária ancestrais mantidas historicamente por mulheres.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
+      </div>
     </main>
 
     <!-- RODAPÉ -->
