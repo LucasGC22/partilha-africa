@@ -408,6 +408,10 @@ function setupMapInteractions() {
         path.classList.add(colony.powerClass);
         // Adicionar dados customizados para referência rápida
         path.setAttribute('data-colony', colonyId);
+        // Permitir a exploração do mapa também por teclado e leitores de tela.
+        path.setAttribute('tabindex', '0');
+        path.setAttribute('role', 'button');
+        path.setAttribute('aria-label', `Explorar: ${colony.title}`);
       }
     }
 
@@ -415,6 +419,12 @@ function setupMapInteractions() {
     path.addEventListener('mouseenter', handleMouseEnter);
     path.addEventListener('mouseleave', handleMouseLeave);
     path.addEventListener('click', handlePathClick);
+    path.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handlePathClick(event);
+      }
+    });
   });
 
   // Fechar seleção se clicar no fundo do SVG
