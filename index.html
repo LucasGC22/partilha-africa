@@ -28,6 +28,11 @@
 
     <!-- BARRA LATERAL ESQUERDA -->
     <aside class="sidebar">
+      <button class="sidebar-toggle-btn" type="button" aria-expanded="false" aria-controls="sidebar-sections">
+        Explorar conteúdos <span class="arrow" aria-hidden="true">⌄</span>
+      </button>
+
+      <div id="sidebar-sections" class="sidebar-sections">
       
       <!-- Linha do Tempo -->
       <section class="sidebar-section">
@@ -148,7 +153,7 @@
           
         </div>
       </section>
-      
+      </div>
     </aside>
 
     <!-- ÁREA PRINCIPAL -->
@@ -250,6 +255,7 @@
         <aside class="right-layout-column">
           
           <div class="details-panel" id="details-panel">
+            <button class="details-close-btn" type="button" aria-label="Fechar detalhes do território">×</button>
             
             <div class="details-empty-state" id="details-empty-state">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -365,6 +371,8 @@
     </footer>
 
   </div>
+
+  <div class="details-overlay" aria-hidden="true"></div>
 
   <script src="script.js"></script>
 </body>

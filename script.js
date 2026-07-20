@@ -337,6 +337,11 @@ const mapContainer = document.getElementById('map-container');
 const detailsPanel = document.getElementById('details-panel');
 const detailsEmptyState = document.getElementById('details-empty-state');
 const colonyDetails = document.getElementById('colony-details');
+const detailsOverlay = document.querySelector('.details-overlay');
+const detailsCloseBtn = document.querySelector('.details-close-btn');
+const sidebar = document.querySelector('.sidebar');
+const sidebarToggleBtn = document.querySelector('.sidebar-toggle-btn');
+const mobileQuery = window.matchMedia('(max-width: 1023px)');
 
 const detailTitle = document.getElementById('detail-title');
 const detailPeriod = document.getElementById('detail-period');
@@ -349,6 +354,7 @@ let selectedColonyId = null;
 
 // Inicialização: Carregar o SVG do mapa
 async function initMap() {
+  setupResponsiveControls();
   try {
     const response = await fetch('africa-map.svg');
     if (!response.ok) throw new Error('Não foi possível carregar o mapa SVG.');
@@ -427,6 +433,7 @@ function setupMapInteractions() {
 
 // Handlers de Interação do Mapa
 function handleMouseEnter(e) {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   const path = e.target;
   const colonyId = path.getAttribute('data-colony');
   if (!colonyId) return;
@@ -447,6 +454,7 @@ function handleMouseEnter(e) {
 }
 
 function handleMouseLeave(e) {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   const path = e.target;
   const colonyId = path.getAttribute('data-colony');
   if (!colonyId) return;
@@ -561,6 +569,8 @@ function showColonyDetails(colonyId) {
   detailsEmptyState.style.display = 'none';
   colonyDetails.classList.add('active');
   if (mainGridLayout) mainGridLayout.classList.remove('no-selection');
+
+  if (mobileQuery.matches) openDetailsModal();
 }
 
 // Ocultar detalhes e voltar ao estado vazio
@@ -568,6 +578,51 @@ function hideColonyDetails() {
   colonyDetails.classList.remove('active');
   detailsEmptyState.style.display = 'flex';
   if (mainGridLayout) mainGridLayout.classList.add('no-selection');
+  closeDetailsModal();
+}
+
+function openDetailsModal() {
+  detailsPanel.classList.add('details-modal-open');
+  detailsOverlay.classList.add('active');
+  detailsOverlay.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('details-modal-active');
+  detailsCloseBtn.focus();
+}
+
+function closeDetailsModal() {
+  detailsPanel.classList.remove('details-modal-open');
+  detailsOverlay.classList.remove('active');
+  detailsOverlay.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('details-modal-active');
+}
+
+function setupResponsiveControls() {
+  const syncSidebar = () => {
+    if (mobileQuery.matches) {
+      sidebar.classList.add('collapsed');
+      sidebarToggleBtn.setAttribute('aria-expanded', 'false');
+    } else {
+      sidebar.classList.remove('collapsed');
+      sidebarToggleBtn.setAttribute('aria-expanded', 'true');
+      closeDetailsModal();
+    }
+  };
+
+  sidebarToggleBtn.addEventListener('click', () => {
+    const isCollapsed = sidebar.classList.toggle('collapsed');
+    sidebarToggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
+  });
+
+  detailsCloseBtn.addEventListener('click', clearSelection);
+  detailsOverlay.addEventListener('click', clearSelection);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && detailsPanel.classList.contains('details-modal-open')) {
+      clearSelection();
+    }
+  });
+
+  mobileQuery.addEventListener('change', syncSidebar);
+  syncSidebar();
 }
 
 // Configurar o Sistema de Filtros
@@ -637,6 +692,14 @@ function setupTimeline() {
   const timelineItems = document.querySelectorAll('.timeline-item');
   
   timelineItems.forEach(item => {
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        item.click();
+      }
+    });
     item.addEventListener('click', () => {
       // Toggle active status
       const isActive = item.classList.contains('active');
