@@ -231,6 +231,8 @@ body.details-modal-active {
    CONTAINER DO MAPA SVG — mobile
    ============================================ */
 .map-wrapper {
+  --map-tilt-x: 0deg;
+  --map-tilt-y: 0deg;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -242,8 +244,40 @@ body.details-modal-active {
   position: relative;
   box-shadow: var(--shadow-lg);
   overflow: hidden;
+  isolation: isolate;
+  perspective: 900px;
   height: clamp(260px, 65vw, 400px);
   transition: height 0.3s ease-in-out;
+}
+
+.map-wrapper::before {
+  content: '';
+  position: absolute;
+  width: min(88%, 560px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(245, 235, 224, 0.13), transparent 20%),
+    radial-gradient(circle at 48% 46%, #2d5e69 0%, #173740 54%, #0a1d26 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow:
+    inset -25px -18px 38px rgba(0, 0, 0, 0.62),
+    inset 12px 8px 20px rgba(255, 255, 255, 0.09),
+    0 22px 30px rgba(0, 0, 0, 0.6);
+  transform: rotateX(12deg) translateY(-1%);
+  z-index: 0;
+}
+
+.map-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 56%;
+  height: 10%;
+  bottom: 9%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  filter: blur(12px);
+  z-index: 0;
 }
 
 .no-selection .map-wrapper {
@@ -255,7 +289,13 @@ body.details-modal-active {
   height: 100%;
   max-height: 100%;
   object-fit: contain;
-  transition: var(--transition-smooth);
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  transform: rotateX(calc(10deg + var(--map-tilt-x))) rotateY(var(--map-tilt-y)) translateZ(20px) scale(0.88);
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 15px 7px rgba(0, 0, 0, 0.48));
+  transition: transform 0.35s ease-out, filter 0.35s ease-out;
 }
 
 /* Estilos de interatividade no SVG */
@@ -264,7 +304,8 @@ body.details-modal-active {
   stroke: rgba(18, 13, 10, 0.4);
   stroke-width: 0.6px;
   cursor: pointer;
-  transition: fill 0.4s ease, opacity 0.4s ease, stroke 0.3s ease, stroke-width 0.3s ease;
+  filter: drop-shadow(2px 5px 0 rgba(7, 20, 25, 0.55));
+  transition: fill 0.4s ease, opacity 0.4s ease, stroke 0.3s ease, stroke-width 0.3s ease, filter 0.3s ease;
 }
 
 .map-wrapper svg .colonia-uk { fill: var(--power-uk) !important; }
@@ -282,13 +323,42 @@ body.details-modal-active {
 .map-wrapper svg .land:hover {
   stroke: #ffffff;
   stroke-width: 1.5px;
-  filter: brightness(1.2);
+  filter: brightness(1.2) drop-shadow(3px 7px 2px rgba(0, 0, 0, 0.62));
 }
 
 .map-wrapper svg .land.focused {
   stroke: var(--accent-gold);
   stroke-width: 2px;
-  filter: brightness(1.3);
+  filter: brightness(1.3) drop-shadow(3px 7px 2px rgba(0, 0, 0, 0.65));
+}
+
+.map-3d-label {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  color: var(--accent-gold);
+  background: rgba(8, 20, 26, 0.74);
+  backdrop-filter: blur(6px);
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.map-3d-label span {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 8px var(--accent-gold);
 }
 
 /* ============================================
@@ -312,6 +382,7 @@ body.details-modal-active {
   font-size: 0.65rem;
   box-shadow: var(--shadow-sm);
   pointer-events: none;
+  z-index: 3;
   transition: var(--transition-panel);
 }
 
@@ -1050,6 +1121,12 @@ summary:focus-visible,
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-wrapper svg {
+    transition: none;
   }
 }
 

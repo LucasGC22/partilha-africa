@@ -429,6 +429,27 @@ function setupMapInteractions() {
 
   // Configurar Timeline
   setupTimeline();
+
+  // Inclinação sutil do mapa em desktops para reforçar a profundidade 3D.
+  setupMap3DInteraction();
+}
+
+function setupMap3DInteraction() {
+  const hasPrecisePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  if (!hasPrecisePointer.matches) return;
+
+  mapContainer.addEventListener('pointermove', (event) => {
+    const bounds = mapContainer.getBoundingClientRect();
+    const horizontal = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const vertical = (event.clientY - bounds.top) / bounds.height - 0.5;
+    mapContainer.style.setProperty('--map-tilt-y', `${horizontal * 5}deg`);
+    mapContainer.style.setProperty('--map-tilt-x', `${vertical * -3}deg`);
+  });
+
+  mapContainer.addEventListener('pointerleave', () => {
+    mapContainer.style.setProperty('--map-tilt-x', '0deg');
+    mapContainer.style.setProperty('--map-tilt-y', '0deg');
+  });
 }
 
 // Handlers de Interação do Mapa
